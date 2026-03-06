@@ -1,0 +1,36 @@
+<package version="0.0">
+  <name>org.openxtalk.widget.passwordfield</name>
+  <title>Password Field</title>
+  <author>Emily-Elizabeth Howard</author>
+  <version>1.0.0</version>
+  <os>mac</os>
+  <license>community</license>
+  <type>widget</type>
+  <requires name="com.livecode.objc"/>
+  <requires name="com.livecode.foreign"/>
+  <requires name="com.livecode.library.widgetutils"/>
+  <requires name="com.livecode.engine"/>
+  <requires name="com.livecode.arithmetic"/>
+  <requires name="com.livecode.binary"/>
+  <requires name="com.livecode.list"/>
+  <requires name="com.livecode.logic"/>
+  <requires name="com.livecode.string"/>
+  <requires name="com.livecode.type"/>
+  <requires name="com.livecode.system"/>
+  <requires name="com.livecode.canvas"/>
+  <requires name="com.livecode.widget"/>
+  <metadata key="svgicon">M18,8h-1V6c0-2.761-2.238-5-5-5S7,3.239,7,6v2H6c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V10C20,8.9,19.1,8,18,8zM12,17c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S13.1,17,12,17zM15.1,8H8.9V6c0-1.713,1.387-3.1,3.1-3.1c1.713,0,3.1,1.387,3.1,3.1V8z</metadata>
+  <handler name="OnPaint" parameters="" return="nothing"/>
+  <handler name="OnCreate" parameters="" return="any"/>
+  <handler name="OnOpen" parameters="" return="any"/>
+  <handler name="OnClose" parameters="" return="any"/>
+  <handler name="OnDestroy" parameters="" return="any"/>
+  <handler name="OnGeometryChanged" parameters="" return="any"/>
+  <handler name="OnParentPropertyChanged" parameters="" return="any"/>
+  <property name="passwordText" get="string" set="string"/>
+  <metadata key="passwordText.label">Password</metadata>
+  <metadata key="passwordText.default"></metadata>
+  <property name="placeholder" get="string" set="string"/>
+  <metadata key="placeholder.label">Placeholder Text</metadata>
+  <metadata key="placeholder.default">Password</metadata>
+</package>

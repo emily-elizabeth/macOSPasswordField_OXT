@@ -1,0 +1,113 @@
+Name: org.openxtalk.widget.passwordfield
+Type: widget
+Summary: A native macOS password field widget wrapping NSSecureTextField.
+OS: mac
+Tags: widget, password, native, mac, field
+
+Description:
+The Password Field widget provides a native macOS secure text input field,
+using NSSecureTextField via the LiveCode Builder Objective-C bridge. Typed
+characters are masked automatically. The widget is macOS-only; on other
+platforms a placeholder image is displayed.
+
+In the IDE editor the widget appears blank. This is expected behaviour,
+consistent with all native Mac widgets in LiveCode.
+
+---
+
+Name: passwordText
+Type: property
+Syntax: set the passwordText of <widget> to <pText>
+Syntax: get the passwordText of <widget>
+Summary: The current plaintext contents of the password field.
+Widget: org.openxtalk.widget.passwordfield
+
+Parameters:
+pText (string): The text to place in the field.
+
+Value (string): The current contents of the field.
+
+Example:
+    -- Read the entered password
+    put the passwordText of widget "myPasswordField" into tPassword
+
+Example:
+    -- Clear the field after submission
+    set the passwordText of widget "myPasswordField" to ""
+
+Description:
+Use the <passwordText> property to get or set the contents of the password
+field. When the native field is active, getting <passwordText> reads the
+live value directly from the NSSecureTextField, so it always reflects what
+the user has typed.
+
+---
+
+Name: placeholder
+Type: property
+Syntax: set the placeholder of <widget> to <pText>
+Syntax: get the placeholder of <widget>
+Summary: The hint text displayed when the field is empty.
+Widget: org.openxtalk.widget.passwordfield
+
+Parameters:
+pText (string): The placeholder string to display.
+
+Value (string): The current placeholder text.
+
+Example:
+    set the placeholder of widget "myPasswordField" to "Enter your password"
+
+Description:
+Use the <placeholder> property to set the greyed-out hint text that appears
+inside the field when it is empty. The default value is "Password".
+
+---
+
+Name: enabled
+Type: property
+Syntax: set the enabled of <widget> to {true | false}
+Syntax: get the enabled of <widget>
+Summary: Whether the password field can be edited.
+Widget: org.openxtalk.widget.passwordfield
+
+Value (boolean): True if the field is editable; false if it is disabled.
+
+Example:
+    -- Disable the field while a network request is in progress
+    set the enabled of widget "myPasswordField" to false
+
+Example:
+    -- Re-enable after completion
+    set the enabled of widget "myPasswordField" to true
+
+Description:
+Use the <enabled> property to control whether the user can interact with
+the password field. When disabled, the field text appears greyed out and
+cannot be edited. This is a standard host widget property and is
+automatically synced to the native NSSecureTextField.
+
+---
+
+Name: returnKey
+Type: message
+Syntax: on returnKey
+Summary: Sent when the user presses the Return key in the password field.
+Widget: org.openxtalk.widget.passwordfield
+
+Example:
+    on returnKey
+        put the passwordText of the target into tPassword
+        if tPassword is empty then
+            answer "Please enter a password."
+            exit returnKey
+        end if
+        -- proceed with authentication
+        authenticateUser tPassword
+        set the passwordText of the target to ""
+    end returnKey
+
+Description:
+The <returnKey> message is sent to the widget's script object when the
+user presses the Return key while the password field is focused. Handle
+this message to submit or validate the entered password.
