@@ -15,7 +15,7 @@ A native macOS password field widget for LiveCode, wrapping `NSSecureTextField` 
 
 ## Requirements
 
-- LiveCode 9.6 or later
+- OpenXTalk 1.14/LiveCode 9.6 or later
 - macOS (the widget uses a native AppKit view and will not render on other platforms)
 
 ---
